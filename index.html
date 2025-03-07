@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sampa Wear</title>
+    <!-- Link do Tailwind CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- Link do AOS para animações -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logotipos/logo-stick.png">
+</head>
+<body class="bg-white text-gray-900">
+    <style>
+        html{
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+        #home{
+            cursor: pointer;
+        }
+    </style>
+
+<header class="bg-black text-white fixed w-full z-50 top-0 left-0 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2" id="home">
+            <img src="img/logotipos/logo-stick.png" alt="Sampa Wear" class="h-12 md:h-16 w-auto">
+            <h1 class="text-2xl font-bold md:text-3xl">
+                <span class="text-red-600">Sampa</span> Wear
+            </h1>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="hidden md:flex space-x-12 text-lg font-medium">
+            <a href="#sobre" class="hover:text-red-600 transition duration-300 transform hover:scale-105">Sobre</a>
+            <a href="#portifolio" class="hover:text-red-600 transition duration-300 transform hover:scale-105">Portfólio</a>
+            <a href="#contato" class="hover:text-red-600 transition duration-300 transform hover:scale-105">Contato</a>
+        </nav>
+
+        <!-- Botão do Menu Mobile -->
+        <div class="md:hidden flex items-center">
+            <button class="text-white text-3xl" id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="md:hidden bg-black text-white absolute top-0 right-0 w-3/4 h-screen transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
+        <div class="flex justify-end p-6">
+            <button class="text-white text-3xl" id="close-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center space-y-8 mt-8 text-lg font-medium">
+            <a href="#sobre" class="hover:text-red-600 transition duration-300 transform hover:scale-105" id="menu-toggle-sobre">Sobre</a>
+            <a href="#portifolio" class="hover:text-red-600 transition duration-300 transform hover:scale-105" id="menu-toggle-portifolio">Portfólio</a>
+            <a href="#contato" class="hover:text-red-600 transition duration-300 transform hover:scale-105" id="menu-toggle-contato">Contato</a>
+        </nav>
+    </div>
+</header>
+
+
+
+
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = document.getElementById("close-menu");
+    const menuToggleSobre = document.getElementById("menu-toggle-sobre");
+    const menuToggleportifolio = document.getElementById("menu-toggle-portifolio");
+    const menuTogglecontato = document.getElementById("menu-toggle-contato");
+
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("translate-x-full");
+    });
+
+    closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+    });
+    
+    menuToggleSobre.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+    });
+
+    menuToggleportifolio.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+    });
+
+    menuTogglecontato.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+    });
+
+    document.getElementById('home').addEventListener('click', function(){
+        window.location.href = "#inithome"
+    })
+    
+</script>
+
+<div class="carousel-wrapper" id="inithome">
+    <div class="carousel-container">
+        <!-- Os itens são adicionados dinamicamente pelo JS -->
+    </div>
+    <div class="carousel-dots overlay absolute bottom-0 justify-self-center"></div>
+</div>
+
+<style>
+    .carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    @media (max-width:680px) {
+        .carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+    }
+
+    .carousel-container {
+        margin-top: 68px;
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width:content;
+    }
+    
+    @media (max-width:680px){
+        .carousel-container {
+        margin-top: 60px;
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width:content;
+    }
+    }
+
+    .carousel-item {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+        background-color: gray;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .dot.active {
+        background-color: white;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const carouselContainer = document.querySelector(".carousel-container");
+    const dotsContainer = document.querySelector(".carousel-dots");
+
+    const items = [
+        { img: "img/banner/1.jpg", title: "Roupa Casual", desc: "Estilo confortável." },
+        { img: "img/banner/2.jpg", title: "Roupa de Festa", desc: "Elegância para ocasiões especiais." },
+        { img: "img/banner/3.jpg", title: "Look de Verão", desc: "Frescor para dias quentes." }
+    ];
+
+    let index = 1; // Começa no primeiro clone para efeito infinito
+    let startX = 0;
+    let moveAmount = 0;
+    let isDragging = false;
+    let autoSlide;
+
+    // Criar os itens do carrossel
+    function createCarouselItems() {
+        // Clona o último item para o começo (início infinito)
+        const cloneLast = { ...items[items.length - 1] };
+        items.unshift(cloneLast);
+
+        // Clona o primeiro item para o final (fim infinito)
+        const cloneFirst = { ...items[1] };
+        items.push(cloneFirst);
+
+        // Adiciona os elementos ao DOM
+        items.forEach((item, i) => {
+            const div = document.createElement("div");
+            div.classList.add("carousel-item");
+            div.innerHTML = `
+                <div class="relative">
+                    <img src="${item.img}" alt="${item.title}" class="w-full h-175 object-cover">
+                    <div class="overlay absolute bottom-0 backdrop-blur-xs w-full p-2">
+                        <h3 class="text-lg font-semibold text-white">${item.title}</h3>
+                        <p class="text-sm text-white">${item.desc}</p>
+                    </div>
+                </div>
+            `;
+            carouselContainer.appendChild(div);
+        });
+
+        // Cria os dots
+        items.slice(1, -1).forEach((_, i) => {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => moveToSlide(i + 1));
+            dotsContainer.appendChild(dot);
+        });
+
+        // Ajusta a posição inicial do carrossel para o primeiro item real
+        carouselContainer.style.transform = `translateX(-100%)`;
+    }
+
+    createCarouselItems();
+    const totalItems = items.length;
+    const dots = document.querySelectorAll(".dot");
+
+    function moveToSlide(slideIndex) {
+        index = slideIndex;
+        updateCarousel();
+        resetInterval();
+    }
+
+    function moveToNextSlide() {
+        index++;
+        updateCarousel();
+    }
+
+    function moveToPrevSlide() {
+        index--;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        carouselContainer.style.transition = "transform 0.3s ease-in-out";
+        carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+
+        // Atualiza os dots corretamente
+        dots.forEach(dot => dot.classList.remove("active"));
+        let dotIndex = index - 1;
+        if (dotIndex < 0) dotIndex = dots.length - 1;
+        if (dotIndex >= dots.length) dotIndex = 0;
+        dots[dotIndex].classList.add("active");
+
+        // Reinicia quando atinge os clones
+        setTimeout(() => {
+            if (index >= totalItems - 1) {
+                index = 1;
+                carouselContainer.style.transition = "none";
+                carouselContainer.style.transform = `translateX(-100%)`;
+            }
+            if (index <= 0) {
+                index = totalItems - 2;
+                carouselContainer.style.transition = "none";
+                carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+            }
+        }, 300);
+    }
+
+    function resetInterval() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(moveToNextSlide, 2500);
+    }
+
+    function dragStart(event) {
+        if (window.innerWidth < 800) {  // Habilita o drag apenas em mobile
+            isDragging = true;
+            startX = event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+            moveAmount = 0;
+            clearInterval(autoSlide);
+            carouselContainer.style.transition = "none"; 
+        }
+    }
+
+    function dragMove(event) {
+        if (!isDragging) return;
+        const currentX = event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+        moveAmount = currentX - startX;
+        carouselContainer.style.transform = `translateX(calc(-${index * 100}% + ${moveAmount}px))`;
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        if (moveAmount < -50) {
+            moveToNextSlide();
+        } else if (moveAmount > 50) {
+            moveToPrevSlide();
+        } else {
+            updateCarousel();
+        }
+
+        resetInterval();
+    }
+
+    // Habilita o drag apenas no mobile
+    if (window.innerWidth < 800) {
+        carouselContainer.addEventListener("mousedown", dragStart);
+        carouselContainer.addEventListener("mousemove", dragMove);
+        carouselContainer.addEventListener("mouseup", dragEnd);
+        carouselContainer.addEventListener("mouseleave", dragEnd);
+
+        carouselContainer.addEventListener("touchstart", dragStart);
+        carouselContainer.addEventListener("touchmove", dragMove);
+        carouselContainer.addEventListener("touchend", dragEnd);
+    }
+
+    autoSlide = setInterval(moveToNextSlide, 2500);
+
+    // Lida com mudanças no tamanho da tela
+    window.addEventListener("resize", () => {
+        if (window.innerWidth < 800) {
+            // Ativa o drag no mobile
+            carouselContainer.addEventListener("mousedown", dragStart);
+            carouselContainer.addEventListener("mousemove", dragMove);
+            carouselContainer.addEventListener("mouseup", dragEnd);
+            carouselContainer.addEventListener("mouseleave", dragEnd);
+
+            carouselContainer.addEventListener("touchstart", dragStart);
+            carouselContainer.addEventListener("touchmove", dragMove);
+            carouselContainer.addEventListener("touchend", dragEnd);
+        } else {
+            // Desativa o drag no desktop
+            carouselContainer.removeEventListener("mousedown", dragStart);
+            carouselContainer.removeEventListener("mousemove", dragMove);
+            carouselContainer.removeEventListener("mouseup", dragEnd);
+            carouselContainer.removeEventListener("mouseleave", dragEnd);
+
+            carouselContainer.removeEventListener("touchstart", dragStart);
+            carouselContainer.removeEventListener("touchmove", dragMove);
+            carouselContainer.removeEventListener("touchend", dragEnd);
+        }
+    });
+});
+
+</script>
+
+<!-- Seção Portfólio -->
+<section id="portifolio" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-semibold mb-8">Nosso Portfólio</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Exemplo de imagem de roupa -->
+            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                <img src="img/produtos-ex/best1/best1.jfif" alt="Produto 1" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tenis Nike</h3>
+                    <p class="text-sm text-gray-700">Just-do-it</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                <img src="img/produtos-ex/best1/best2.jfif" alt="Produto 2" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tenis Adidas</h3>
+                    <p class="text-sm text-gray-700">Elegância para os melhores momentos.</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                <img src="img/produtos-ex/best1/best3.jfif" alt="Produto 2" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Boné Nike</h3>
+                    <p class="text-sm text-gray-700">Proteja-se com estilo</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                <img src="img/produtos-ex/best1/best4.jfif" alt="Produto 2" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Moletom Nike</h3>
+                    <p class="text-sm text-gray-700">Elegância para os melhores momentos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="upHome" class="fixed bottom-5 right-5 bg-red-700 w-10 h-10 flex justify-center items-center rounded-[50%]" data-aos="fade-up">
+    
+    <i class="fa-solid fa-angles-up scale-[130%] text-white"></i>
+
+</div>
+
+<script>
+    document.getElementById('upHome').addEventListener('click', function(){
+        window.location.href = '#inithome'
+    })
+</script>
+
+<!-- Footer -->
+<footer class="bg-stone-900 text-white py-10" id="contato">
+    <!-- Primeira Linha: Direitos Autorais -->
+    <div class="mb-8 text-center">
+        <p>&copy; 2025 Sampa Wear. Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Segunda Linha: Contato | Redes Sociais | Políticas | Empresas Parceiras -->
+    <div class="flex flex-col md:flex-row justify-between mx-auto max-w-screen-xl px-4 space-y-8 md:space-y-0">
+        <!-- Contato (extrema esquerda) -->
+        <div class="space-y-4 flex-shrink-0 md:w-1/4 text-center md:text-left">
+            <h3 class="text-sm font-semibold underline">Contato</h3>
+            <p class="text-sm">CNPJ: 32.970.144/0003-29</p>
+            <p class="text-sm hover:text-red-500"><a href="https://maps.app.goo.gl/r8GSbTiDFS2QBynD6" target="_blank">Rua Braz Cubas, 159 <br> Mogi das Cruzes/SP</a></p>
+            <p class="text-sm"><a href="mailto:sampawear3@gmail.com" class="text-white hover:text-red-500">sampawear3@gmail.com</a></p>
+            <p class="text-sm"><a href="tel:+551126108371" class="text-white hover:text-red-500">(11)2610-8371</a></p>
+        </div>
+
+        <hr>
+        
+        <!-- Redes Sociais -->
+        <div class="space-y-4 flex-shrink-0 md:w-1/4 text-center md:text-left">
+            <h3 class="text-sm font-semibold underline">Redes Sociais</h3>
+            <div class="flex justify-center md:justify-start space-x-6">
+                <a href="https://www.facebook.com/lojasampawear" target="_blank" class="text-white hover:text-red-500 text-2xl">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/sampawear" target="_blank" class="text-white hover:text-red-500 text-2xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/551126108371" target="_blank" class="text-white hover:text-red-500 text-2xl">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Políticas -->
+        <div class="space-y-4 flex-shrink-0 md:w-1/4 text-center md:text-left">
+            <h3 class="text-sm font-semibold underline">Políticas</h3>
+            <a href="/termos" class="text-white hover:text-red-500 text-sm block">Termos de Uso</a>
+            <a href="/polices/policy.html" class="text-white hover:text-red-500 text-sm block">Política de Privacidade</a>
+        </div>
+
+        <hr>
+
+        <!-- Empresas Parceiras (extrema direita) -->
+        <div class="space-y-4 flex-shrink-0 md:w-1/4 text-center md:text-left">
+            <h3 class="text-sm font-semibold underline">Empresas Parceiras</h3>
+            <div class="flex justify-center space-x-8">
+                <a href="https://wa.me/551147969316" target="_blank">
+                    <img src="img/parceiras/deposito/logo2.png" alt="Deposito Glicerio" class="h-10">
+                </a>
+                <a href="https://www.hantecnologia.com.br" target="_blank">
+                    <img src="img/parceiras/hamilton/1.jpg" alt="HAN Tecnologia" class="h-10">
+                </a>
+                <a href="https://www.017tag.com.br" target="_blank">
+                    <img src="img/parceiras/017tag/big169.png" alt="017Tag" class="h-10">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Linha Inferior: Desenvolvido por -->
+    <div class="mt-8 text-center">
+        <h3 class="text-lg font-semibold text-white mb-4">Desenvolvido por
+        
+            <a class="font-semibold hover:text-red-400" href="https://017tag.com.br">017Tag</a>
+        </h3>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- Script AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+</body>
+</html>

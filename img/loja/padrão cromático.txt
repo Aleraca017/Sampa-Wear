@@ -1,0 +1,7 @@
+Padrão Cromático
+Logo: Vermelho, Preto e Branco
+(
+vermelho: #ff0033,
+preto: #000000,
+branco: #ffffff
+)
